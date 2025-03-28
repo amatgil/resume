@@ -1,0 +1,346 @@
+%%%%%%%%%%%%%%%%%
+% From altacv
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and simpleicons packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/simpleicons for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{positioning}
+\usepackage[colorlinks = true, % none of these do anything
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+
+\definecolor{caslinkblue}{RGB}{0,102,204}  % IE color link ftw
+\newcommand{\casurl}[1]{{\color{caslinkblue}\url{#1}}}
+% WHEN COMPILING WITH XELATEX PLEASE USE
+% xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex
+\iftutex 
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+% ...and the markers for the date/location for \cvevent
+% \renewcommand{\cvDateMarker}{\faCalendar*[regular]}
+% \renewcommand{\cvLocationMarker}{\faMapMarker*}
+
+
+% If your CV/résumé is in a language other than English,
+% then you probably want to change these so that when you
+% copy-paste from the PDF or run pdftotext, the location
+% and date marker icons for \cvevent will paste as correct
+% translations. For example Spanish:
+% \renewcommand{\locationname}{Ubicación}
+% \renewcommand{\datename}{Fecha}
+
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% \input{pubs-authoryear.tex}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+\input{pubs-num.tex}
+
+\begin{document}
+\name{Amat Gil Viñes}
+\tagline{Student}
+%% You can add multiple photos on the left or right
+%\photoR{2.8cm}{Globe_High}
+% \photoL{2.5cm}{Yacht_High,Suitcase_High}
+
+\personalinfo{%
+  % Not all of these are required!
+  \email{amatgilvinyes@gmail.com}
+  %\phone{000-00-0000}
+  \location{Barcelona, Barcelona}
+  \homepage{www.amatgil.cat}
+  % \twitter{@twitterhandle}
+  \github{www.github.com/amatgil}
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+  %%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+\cvsection{Projects}
+
+\cvevent{S-IC-mulador}{A fully fledged assembly emulator, featuring memory, memory-mapped IO}{}{}
+\begin{itemize}
+\item Interactive link: \casurl{https://amatgil.cat/utils/s-ic-mulador}
+\item Language: Rust
+\end{itemize}
+
+\divider
+
+\cvevent{Tubaitu}{Hand-made graphical 2x2 Rubix Cube featuring standard half-moves, scrambling and solving}{}{}
+\begin{itemize}
+\item Interactive link: \casurl{https://amatgil.cat/jocs_misc/cub_tubaitu}
+\item Language: Rust
+\end{itemize}
+\divider 
+
+\cvevent{Fractalitzador}{Capable of drawing concrete fractals as well as from their L-System grammar specification (with adjustable parameters)}{}{}
+\begin{itemize}
+\item Interactive link: \casurl{https://amatgil.cat/jocs_misc/fractals}
+\item Language: Rust
+\end{itemize}
+\divider 
+
+\cvevent{Tau Memorizer}{A gamified applet to memorize, digit by digit, the value of the true circle constant: tau}{}{}
+\begin{itemize}
+\item Interactive link: \casurl{https://amatgil.cat/jocs_misc/tau_mem}
+\item Language: JavaScript + HTML + CSS
+\end{itemize}
+\divider 
+
+\cvevent{Game of Life}{A performant, scalable, interactive Game of Life simulator}{}{}
+\begin{itemize}
+\item Interactive link: \casurl{https://amatgil.cat/altres/game_of_life}
+\item Language: Rust
+\end{itemize}
+\divider 
+
+\cvevent{Boron}{An expression-driven scripting language based exclusively around prefix expressions}{}{}
+\begin{itemize}
+\item Source code: \casurl{https://github.com/amatgil/boron/tree/master/examples}
+\item Language: Haskell
+\end{itemize}
+
+\divider
+
+\switchcolumn
+\bigskip
+\bigskip
+
+\divider
+\cvevent{Resume/CV}{The document you're looking at!}{}{}
+\begin{itemize}
+\item Source code: \casurl{https://github.com/amatgil/resume}
+\item Language: LaTeX
+\end{itemize}
+\divider
+
+\cvevent{Breakbreak}{Breakout, written as to maximize code readability, ergonomics and user experience (UX)}{}{}
+\begin{itemize}
+\item Source code: \casurl{https://github.com/amatgil/breakbreak}
+\item Language: Uiua
+\end{itemize}
+
+
+\medskip
+\cvsection{Languages}
+
+\cvtag{Rust}
+\cvtag{Uiua}
+\cvtag{Haskell}\\
+\cvtag{Common Lisp}
+\cvtag{LaTeX}\\
+%\begin{tikzpicture}
+%  \node[inner sep=0pt] (rustlang) {
+%    \includegraphics[width=50px]{rustlogo.png}
+%    Rust
+%  };
+%  \node[inner sep=0pt] (uiualang) [right=of rustlang] {
+%    \includegraphics[width=50px]{Uiua-logo.png}
+%  };
+%  \node[inner sep=0pt] (haskelllang) [below=of rustlang] {
+%    \includegraphics[width=50px]{haskell-logo.png}
+%  };
+%  \node[inner sep=0pt] (commonlisplang) [right=of haskelllang]  {
+%    \includegraphics[width=50px]{Lisp_logo.png}
+%  };
+%  \node[inner sep=0pt] (latexlang) [below=of haskelllang] {
+%    \includegraphics[width=50px]{LaTeX_logo.svg.png}
+%  };
+%\end{tikzpicture}
+
+%\cvsection{My Life Philosophy}
+%
+%\begin{quote}
+%``''
+%\end{quote}
+
+%\cvsection{Strengths}
+%
+%% Don't overuse these \cvtag boxes — they're just eye-candies and not essential. If something doesn't fit on a single line, it probably works better as part of an itemized list (probably inlined itemized list), or just as a comma-separated list of strengths.
+%
+%% The `ragged2e` document class option might cause automatic linebreaks between \cvtag to fail.
+%% Either remove the ragged2e option; or 
+%% add \LaTeXraggedright in the paragraph for these \cvtag
+%{\Xraggedright
+%\cvtag{Hard-working}
+%\cvtag{Curious}
+%\cvtag{Motivator \& Leader}
+%\par}
+%
+%\divider\smallskip
+%
+%%% ...Or manually add linebreaks yourself
+%\cvtag{C++}
+%\cvtag{Embedded Systems}\\
+%\cvtag{Statistical Analysis}
+
+\medskip
+\cvsection{Paradigms}
+%\cvachievement{\includegraphics[width=22px]{rustlogo.png}}{Rust}{Strongly typed, imperative paradigm}
+%
+%\divider
+%
+%\cvachievement{\includegraphics[width=21px]{Uiua-logo.png}}{Uiua}{Dynamically typed, array \& stack}
+%
+%\divider
+%
+%\cvachievement{\includegraphics[width=21px]{haskell-logo.png}}{Haskell}{Strongly typed, pure functional}
+%
+%\divider
+%
+%\cvachievement{\includegraphics[width=21px]{Lisp_logo.png}}{Common Lisp}{Dynamically typed, lisp-y}
+%
+%\cvsection{Spoken Languages}
+\cvtag{Strong typing}
+\cvtag{Dynamic typing}\\
+\cvtag{Lisp (meta)}
+\cvtag{Array \& stack based}\\
+\cvtag{Functional}
+\cvtag{Imperative}\\
+%\begin{tikzpicture}
+%  \node[inner sep=0pt] (strong) {
+%    Strong typing   
+%  };
+%  \node[inner sep=0pt] (dyn) [right = 1.0cm of strong] {
+%    Dynamic typing
+%  };
+%  \node[inner sep=0pt] (array) [below = 0.2cm of strong]  {
+%    Array \& stack-based
+%  };
+%  \node[inner sep=0pt] (imperative) [below = 0.2cm of array] {
+%    Imperative
+%  };
+%  \node[inner sep=0pt] (functional) [below= 0.2cm of dyn] {
+%    Functional, lisp
+%  };
+%\end{tikzpicture}
+
+\medskip
+\cvsection{Spoken Languages}
+\cvachievement{}{English}{Certified Proficiency, C2}
+\divider
+
+\cvachievement{}{Spanish}{Native}
+\divider
+
+\cvachievement{}{Catalan}{Native}
+\divider
+
+%\cvskill{German}{0.5} %% Supports X.5 values.
+
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vspace etc to make adjustments.
+%\medskip
+
+%\cvsection{Education}
+%
+%\cvevent{Ph.D.\ in Your Discipline}{Your University}{Sept 2002 -- June 2006}{}
+%Thesis title: Wonderful Research
+%
+%\divider
+%
+%\cvevent{M.Sc.\ in Your Discipline}{Your University}{Sept 2001 -- June 2002}{}
+%
+%\divider
+%
+%\cvevent{B.Sc.\ in Your Discipline}{Stanford University}{Sept 1998 -- June 2001}{}
+
+% \divider
+
+%\cvsection{Referees}
+%
+%% \cvref{name}{email}{mailing address}
+%\cvref{Prof.\ Alpha Beta}{Institute}{a.beta@university.edu}
+%{Address Line 1\\Address line 2}
+%
+%\divider
+%
+%\cvref{Prof.\ Gamma Delta}{Institute}{g.delta@university.edu}
+%{Address Line 1\\Address line 2}
+
+
+\end{paracol}
+
+
+\end{document}
